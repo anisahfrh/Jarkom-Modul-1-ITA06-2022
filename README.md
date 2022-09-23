@@ -95,9 +95,53 @@ Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
 
 ![hasil src host 192.168.131.81](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/soal7/soal7_2.jpg)
 
+Di sebuah planet bernama Viltrumite, terdapat Kementerian Komunikasi dan Informatika yang baru saja menetapkan kebijakan baru. Dalam kebijakan baru tersebut, pemerintah dapat mengakses data pribadi masyarakat secara bebas jika memang dibutuhkan, baik dengan maupun tanpa persetujuan pihak yang bersangkutan. Sebagai mahasiswa yang sedang melaksanakan program magang di kementerian tersebut, kalian mendapat tugas berupa penyadapan percakapan mahasiswa yang diduga melakukan tindak kecurangan dalam kegiatan Praktikum Komunikasi Data dan Jaringan Komputer 2022. Selain itu, terdapat sebuah password rahasia (flag) yang diduga merupakan milik sebuah organisasi bawah tanah yang selama ini tidak sejalan dengan pemerintahan Planet Viltrumite. Tunggu apa lagi, segera kerjakan tugas magang tersebut agar kalian bisa mendapatkan pujian serta kenaikan jabatan di kementerian tersebut!
+
+Terdapat laporan adanya pertukaran file yang dilakukan oleh kedua mahasiswa dalam percakapan yang diperoleh, carilah file yang dimaksud! Untuk memudahkan laporan kepada atasan, beri nama file yang ditemukan dengan format [nama_kelompok].des3 dan simpan output file dengan nama “flag.txt”.
+Temukan password rahasia (flag) dari organisasi bawah tanah yang disebutkan di atas!
+Note: Terkait soal nomor 9 dan 10, file yang didapatkan tidak perlu dikumpulkan, cukup tulis flag yang didapatkan ke dalam laporan kalian 🙏.
+
 ## Soal 8
 
-### Penyelesaian soal 8
+Telusuri aliran paket dalam file .pcap yang diberikan, cari informasi berguna berupa percakapan antara dua mahasiswa terkait tindakan kecurangan pada kegiatan praktikum. Percakapan tersebut dilaporkan menggunakan protokol jaringan dengan tingkat keandalan yang tinggi dalam pertukaran datanya sehingga kalian perlu menerapkan filter dengan protokol yang tersebut.
+
+### Penyelesaian Soal 8
+
+Kita akan menemukan payload berisi salah satu message dari dua mahasiswa tersebut, jika di follow maka kita akan mendapatkan filter nya yaitu `tcp.stream eq 12` dan yang kedua adalah `tcp.stream eq 41`
+
+![hasil tcp.stream eq 12 or tcp.stream eq 41](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/no8-1.PNG)
+
+## Soal 9
+
+Terdapat laporan adanya pertukaran file yang dilakukan oleh kedua mahasiswa dalam percakapan yang diperoleh, carilah file yang dimaksud! Untuk memudahkan laporan kepada atasan, beri nama file yang ditemukan dengan format **[nama_kelompok].des3**  dan simpan *output file* dengan nama **“flag.txt”**.
+
+### Penyelesaian Soal 9
+
+Terjadi pengiriman file di port 9002, ikuti pakai `tcp.port eq 9002`, cari payload yang berisi tulisan salt.
+
+![hasil tcp.stream eq 12 or tcp.stream eq 41](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/no9-1.PNG)
+
+Dari hasil percakapan juga ada kata sandi yang memberikan clue anime kembar lima, langsung sajar saya menebak dengan key nakano
+
+follow tcp nya, setelah itu dijadikan raw untuk disimpan menjadi ITA06.des3
+
+![hasil tcp.stream eq 12 or tcp.stream eq 41](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/no9-2.PNG)
+
+gunakan line berikut di openssl untuk mendecrypt file des3 nya `des3 -d -salt -in ITA06.des3 -o flag.txt -k nakano`
+
+![hasil tcp.stream eq 12 or tcp.stream eq 41](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/no9-3.PNG)
+
+dapatlah flag nya
+
+## Soal 10
+
+Temukan password rahasia (flag) dari organisasi bawah tanah yang disebutkan di atas!
+
+Note: Terkait soal nomor 9 dan 10, file yang didapatkan tidak perlu dikumpulkan, cukup tulis flag yang didapatkan ke dalam laporan kalian 🙏.
+
+### Penyelesaian Soal 10
+
+![hasil tcp.stream eq 12 or tcp.stream eq 41](https://github.com/anisahfrh/Screenshot_Jarkom/raw/main/Modul1/no9-3.PNG)
 
 ## Kendala Pengerjaan
 - Soal 4 sempat terjadi eror menjalankan FileZilla di XAMPP
