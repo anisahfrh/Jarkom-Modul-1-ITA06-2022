@@ -9,11 +9,30 @@
 ## Soal 1
 Sebutkan web server yang digunakan pada "monta.if.its.ac.id"! 
 ### Penyelesaian soal 1
+- Dengan menggunakan display filter `http.server` kemudian “Follow" > "TCP Stream” agar bisa mendapatkan response dari request
+![soal1_1](https://user-images.githubusercontent.com/76768695/192086722-94db4bc1-edf2-4dc9-b3f5-2d027c5727b2.PNG)
+
+Tampilan sebelum Follow TCP Stream
+
+![soal1_2](https://user-images.githubusercontent.com/76768695/192086869-c130ff38-44db-4f2e-800e-fd3e42885a8e.PNG)
+- Bisa dilihat dari hasil diatas, dalam respons header terdapat header dengan value server `nginx/1.10.3`
 
 ## Soal 2
+Ishaq sedang bingung mencari topik ta untuk semester ini , lalu ia datang ke website monta dan menemukan detail topik pada website “monta.if.its.ac.id” , judul TA apa yang dibuka oleh ishaq ?
 
 ### Penyelesaian soal 2
+- Dengan menggunakan display filter `http.request.uri contains "detailTopik"`untuk menampilkan semua paket dengan protokol HTTP yang URL nya mengandung string "detailTopik"
 
+![soal2_2](https://user-images.githubusercontent.com/76768695/192087738-11f465f8-443a-454b-9217-e3cb034dd885.PNG)
+
+- Kemudian “Follow" > "TCP Stream” agar bisa mendapatkan response dari request
+
+- Selanjutnya `ctrl+f` untuk mencari string "detailTopik" yang terhubung dengan link, maka didapatkan `http://monta.if.its.ac.id/index.php/topik/detailTopik/194`
+
+![soal2_2](https://user-images.githubusercontent.com/76768695/192087410-c3a21e87-1b74-44cc-9115-83f68effe9b9)
+
+- Kemudian mengarahkan ke link tersebut, maka akan didapatkan detail topik TA dengan judul "Evaluasi unjuk kerja User Space Filesystem (FUSE)"
+![soal2_3](https://user-images.githubusercontent.com/76768695/192087675-8073d0af-681c-473a-99e1-078d622ff608.PNG)
 
 ## Soal 3
 Filter sehingga wireshark hanya menampilkan paket yang menuju port 80!
