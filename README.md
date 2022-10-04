@@ -23,13 +23,13 @@ Ishaq sedang bingung mencari topik ta untuk semester ini , lalu ia datang ke web
 ### Penyelesaian soal 2
 - Dengan menggunakan display filter `http.request.uri contains "detailTopik"`untuk menampilkan semua paket dengan protokol HTTP yang URL nya mengandung string "detailTopik"
 
-![soal2_2](https://user-images.githubusercontent.com/76768695/192087738-11f465f8-443a-454b-9217-e3cb034dd885.PNG)
+![soal2_1](https://user-images.githubusercontent.com/76768695/193758705-f32821a0-5e6b-46fe-b391-7c7f79b496b6.PNG)
 
 - Kemudian “Follow" > "TCP Stream” agar bisa mendapatkan response dari request
 
 - Selanjutnya `ctrl+f` untuk mencari string "detailTopik" yang terhubung dengan link, maka didapatkan `http://monta.if.its.ac.id/index.php/topik/detailTopik/194`
 
-![soal2_2](https://user-images.githubusercontent.com/76768695/192087410-c3a21e87-1b74-44cc-9115-83f68effe9b9)
+![soal2_2](https://user-images.githubusercontent.com/76768695/192087738-11f465f8-443a-454b-9217-e3cb034dd885.PNG)
 
 - Kemudian mengarahkan ke link tersebut, maka akan didapatkan detail topik TA dengan judul "Evaluasi unjuk kerja User Space Filesystem (FUSE)"
 ![soal2_3](https://user-images.githubusercontent.com/76768695/192087675-8073d0af-681c-473a-99e1-078d622ff608.PNG)
